@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int removeElement(vector<int>& nums, int val) {
+      int removeElement(vector<int>& nums, int val) {
         vector<int>::iterator da;
         da=nums.begin();
         for(int i=0;i<nums.size();i++){
@@ -13,5 +13,4 @@ public:
         }
     return nums.size();
     }
-
 };
