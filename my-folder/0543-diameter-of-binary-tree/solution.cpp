@@ -9,20 +9,18 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-using namespace std;
 class Solution {
 public:
+    int height(TreeNode* root){
+    if (!root) return 0;
+    return 1+max(height(root->left),height(root->right));
+}
     int diameterOfBinaryTree(TreeNode* root) {
-         int res = 0;
-        diameter(root, res);
-        return res;
-    }
-    private:
-    int diameter(TreeNode* curr, int& res){
-        if (!curr) return 0;
-        int left = diameter(curr->left, res);
-        int right = diameter(curr->right, res);
-        res = max(res, left + right);
-        return std::max(left, right) + 1;
+        if (!root) return 0;
+    int op1=height(root->left)+height(root->right);
+    int op2=diameterOfBinaryTree(root->left);
+    int op3=diameterOfBinaryTree(root->right);
+    return max(op1,max(op2,op3));
+        
     }
 };
