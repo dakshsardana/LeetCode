@@ -18,5 +18,4 @@ public:
         root->left=invertTree(right);
         return root;
     }
-    
 };
